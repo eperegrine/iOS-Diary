@@ -12,4 +12,16 @@ class DiaryEntry: Codable {
     var date: Date = Date()
     var title: String?
     var content: String
+    
+    var gbDate: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyy"
+        return dateFormatter.string(from: self.date)
+    }
+    
+    init(at date: Date, title: String?, content: String) {
+        self.date = date
+        self.title = title
+        self.content = content
+    }
 }

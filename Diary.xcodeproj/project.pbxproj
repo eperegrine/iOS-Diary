@@ -8,12 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		6A8C65E1214C20AE0021C535 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8C65E0214C20AE0021C535 /* AppDelegate.swift */; };
-		6A8C65E3214C20AE0021C535 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8C65E2214C20AE0021C535 /* ViewController.swift */; };
+		6A8C65E3214C20AE0021C535 /* DiaryCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8C65E2214C20AE0021C535 /* DiaryCollectionViewController.swift */; };
 		6A8C65E6214C20AE0021C535 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A8C65E4214C20AE0021C535 /* Main.storyboard */; };
 		6A8C65E8214C20AF0021C535 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A8C65E7214C20AF0021C535 /* Assets.xcassets */; };
 		6A8C65EB214C20AF0021C535 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A8C65E9214C20AF0021C535 /* LaunchScreen.storyboard */; };
 		6A8C65F6214C20AF0021C535 /* DiaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8C65F5214C20AF0021C535 /* DiaryTests.swift */; };
 		6A8C6602214C20D20021C535 /* DiaryEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8C6601214C20D20021C535 /* DiaryEntry.swift */; };
+		6A8C6605214C24A10021C535 /* DiaryEntryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8C6604214C24A10021C535 /* DiaryEntryCollectionViewCell.swift */; };
+		6A8C6607214C29AD0021C535 /* DiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8C6606214C29AD0021C535 /* DiaryViewController.swift */; };
+		6A8C6609214C30040021C535 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8C6608214C30040021C535 /* Utils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,7 +32,7 @@
 /* Begin PBXFileReference section */
 		6A8C65DD214C20AE0021C535 /* Diary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Diary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A8C65E0214C20AE0021C535 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		6A8C65E2214C20AE0021C535 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		6A8C65E2214C20AE0021C535 /* DiaryCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryCollectionViewController.swift; sourceTree = "<group>"; };
 		6A8C65E5214C20AE0021C535 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6A8C65E7214C20AF0021C535 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6A8C65EA214C20AF0021C535 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -38,6 +41,9 @@
 		6A8C65F5214C20AF0021C535 /* DiaryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryTests.swift; sourceTree = "<group>"; };
 		6A8C65F7214C20AF0021C535 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6A8C6601214C20D20021C535 /* DiaryEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryEntry.swift; sourceTree = "<group>"; };
+		6A8C6604214C24A10021C535 /* DiaryEntryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryEntryCollectionViewCell.swift; sourceTree = "<group>"; };
+		6A8C6606214C29AD0021C535 /* DiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryViewController.swift; sourceTree = "<group>"; };
+		6A8C6608214C30040021C535 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,13 +85,14 @@
 		6A8C65DF214C20AE0021C535 /* Diary */ = {
 			isa = PBXGroup;
 			children = (
+				6A8C6603214C243B0021C535 /* ViewControllers */,
 				6A8C6600214C20C00021C535 /* Models */,
 				6A8C65E0214C20AE0021C535 /* AppDelegate.swift */,
-				6A8C65E2214C20AE0021C535 /* ViewController.swift */,
 				6A8C65E4214C20AE0021C535 /* Main.storyboard */,
 				6A8C65E7214C20AF0021C535 /* Assets.xcassets */,
 				6A8C65E9214C20AF0021C535 /* LaunchScreen.storyboard */,
 				6A8C65EC214C20AF0021C535 /* Info.plist */,
+				6A8C6608214C30040021C535 /* Utils.swift */,
 			);
 			path = Diary;
 			sourceTree = "<group>";
@@ -105,6 +112,16 @@
 				6A8C6601214C20D20021C535 /* DiaryEntry.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		6A8C6603214C243B0021C535 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				6A8C65E2214C20AE0021C535 /* DiaryCollectionViewController.swift */,
+				6A8C6604214C24A10021C535 /* DiaryEntryCollectionViewCell.swift */,
+				6A8C6606214C29AD0021C535 /* DiaryViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -208,9 +225,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6A8C65E3214C20AE0021C535 /* ViewController.swift in Sources */,
+				6A8C65E3214C20AE0021C535 /* DiaryCollectionViewController.swift in Sources */,
+				6A8C6607214C29AD0021C535 /* DiaryViewController.swift in Sources */,
 				6A8C6602214C20D20021C535 /* DiaryEntry.swift in Sources */,
 				6A8C65E1214C20AE0021C535 /* AppDelegate.swift in Sources */,
+				6A8C6605214C24A10021C535 /* DiaryEntryCollectionViewCell.swift in Sources */,
+				6A8C6609214C30040021C535 /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
