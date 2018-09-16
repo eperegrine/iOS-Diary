@@ -8,8 +8,9 @@
 
 import UIKit
 
-class DiaryCollectionViewController: UIViewController {
+class DiaryCollectionViewController: UIViewController, UICollectionViewDelegate {
 
+    @IBOutlet weak var entryCollectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
