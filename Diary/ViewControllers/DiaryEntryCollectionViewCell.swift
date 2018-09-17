@@ -17,6 +17,9 @@ class DiaryEntryCollectionViewCell: UICollectionViewCell {
     
     func setDiary(to diary: DiaryEntry) {
         self.diary = diary
+        
+        DateLabel.text = diary.gbDate
+        TitleLabel.text = diary.title
     }
     
 }
