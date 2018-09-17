@@ -12,5 +12,11 @@ class DiaryEntryCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var DateLabel: UILabel!
     @IBOutlet weak var TitleLabel: UILabel!
+
+    private var diary: DiaryEntry?
+    
+    func setDiary(to diary: DiaryEntry) {
+        self.diary = diary
+    }
     
 }
