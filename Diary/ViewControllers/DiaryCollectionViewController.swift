@@ -36,8 +36,7 @@ class DiaryCollectionViewController: UIViewController, UICollectionViewDelegate,
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
     //MARK: UICollectionViewDataSource Protocol Methods
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
