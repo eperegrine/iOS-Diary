@@ -99,7 +99,49 @@
                     <view key="view" contentMode="scaleToFill" id="ag5-c8-9F1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01/01/1970" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VRk-RA-cMn">
+                                <rect key="frame" x="16" y="104" width="343" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Entry Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4D0-YS-k2p">
+                                <rect key="frame" x="16" y="148" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Entry Content:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AQG-Tt-Ex4">
+                                <rect key="frame" x="16" y="186" width="343" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="iTV-Xn-sFF">
+                                <rect key="frame" x="16" y="215" width="343" height="580"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="yes" spellCheckingType="yes" smartQuotesType="yes"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="iTV-Xn-sFF" firstAttribute="top" secondItem="AQG-Tt-Ex4" secondAttribute="bottom" constant="8" id="42L-Rk-rgt"/>
+                            <constraint firstItem="4D0-YS-k2p" firstAttribute="top" secondItem="VRk-RA-cMn" secondAttribute="bottom" constant="8" id="7Rq-4z-LmC"/>
+                            <constraint firstItem="4D0-YS-k2p" firstAttribute="leading" secondItem="dn0-OE-9Wq" secondAttribute="leading" constant="16" id="Db6-UT-Jfo"/>
+                            <constraint firstAttribute="bottom" secondItem="iTV-Xn-sFF" secondAttribute="bottom" constant="17" id="IGU-RU-MGO"/>
+                            <constraint firstItem="VRk-RA-cMn" firstAttribute="leading" secondItem="dn0-OE-9Wq" secondAttribute="leading" constant="16" id="UxO-fL-fRv"/>
+                            <constraint firstItem="iTV-Xn-sFF" firstAttribute="leading" secondItem="dn0-OE-9Wq" secondAttribute="leading" constant="16" id="b09-aJ-frQ"/>
+                            <constraint firstItem="AQG-Tt-Ex4" firstAttribute="leading" secondItem="dn0-OE-9Wq" secondAttribute="leading" constant="16" id="etL-YD-K05"/>
+                            <constraint firstItem="dn0-OE-9Wq" firstAttribute="trailing" secondItem="iTV-Xn-sFF" secondAttribute="trailing" constant="16" id="gsQ-WF-FL2"/>
+                            <constraint firstItem="dn0-OE-9Wq" firstAttribute="trailing" secondItem="VRk-RA-cMn" secondAttribute="trailing" constant="16" id="kbK-CT-mmk"/>
+                            <constraint firstItem="dn0-OE-9Wq" firstAttribute="trailing" secondItem="4D0-YS-k2p" secondAttribute="trailing" constant="16" id="lBV-vv-vH1"/>
+                            <constraint firstItem="AQG-Tt-Ex4" firstAttribute="top" secondItem="4D0-YS-k2p" secondAttribute="bottom" constant="8" id="pqz-Uh-CWj"/>
+                            <constraint firstItem="VRk-RA-cMn" firstAttribute="top" secondItem="dn0-OE-9Wq" secondAttribute="top" constant="16" id="qJj-w2-s76"/>
+                            <constraint firstItem="dn0-OE-9Wq" firstAttribute="trailing" secondItem="AQG-Tt-Ex4" secondAttribute="trailing" constant="16" id="xOo-u5-Dxd"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="dn0-OE-9Wq"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add Entry" id="pIi-IW-y1w">
@@ -108,8 +150,18 @@
                                 <action selector="Cancel:" destination="DwN-uc-l6k" id="nXl-zn-vHS"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="1eu-vk-5AN"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="1eu-vk-5AN">
+                            <connections>
+                                <action selector="Save:" destination="DwN-uc-l6k" id="3MM-Mh-IKa"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="ContentTextView" destination="iTV-Xn-sFF" id="GJR-rB-bJY"/>
+                        <outlet property="DateLabel" destination="VRk-RA-cMn" id="q27-f8-y6n"/>
+                        <outlet property="TitleTextField" destination="4D0-YS-k2p" id="N4y-aW-zfh"/>
+                        <outlet property="saveButton" destination="1eu-vk-5AN" id="KKk-Ae-vE3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SC9-hw-i6n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

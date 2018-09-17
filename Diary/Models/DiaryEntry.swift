@@ -13,10 +13,14 @@ class DiaryEntry: Codable {
     var title: String?
     var content: String
     
-    var gbDate: String {
+    static func formatDate(from date: Date) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd/MM/yyyy"
-        return dateFormatter.string(from: self.date)
+        return dateFormatter.string(from: date)
+    }
+    
+    var gbDate: String {
+        return DiaryEntry.formatDate(from: self.date)
     }
     
     init(at date: Date, title: String?, content: String) {

@@ -8,22 +8,63 @@
 
 import UIKit
 
-class AddEntryViewController: UIViewController {
+class AddEntryViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate {
 
+    //MARK: Properties
+    @IBOutlet weak var saveButton: UIBarButtonItem!
+    @IBOutlet weak var DateLabel: UILabel!
+    @IBOutlet weak var TitleTextField: UITextField!
+    @IBOutlet weak var ContentTextView: UITextView!
+    
+    //MARK: Setup
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        TitleTextField.delegate = self
+        ContentTextView.delegate = self
+        DateLabel.text = DiaryEntry.formatDate(from: Date())
+        
+        TitleTextField.inputAccessoryView = setupToolbar(actionTitle: "Next", actionStyle: .plain, action: #selector(focusContentEditor))
+        ContentTextView.inputAccessoryView = setupToolbar(actionTitle: "Done", actionStyle: .done, action: #selector(doneButtonAction))
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    func setupToolbar(actionTitle: String, actionStyle: UIBarButtonItemStyle, action: Selector) -> UIToolbar {
+        let toolbar:UIToolbar = UIToolbar(frame: CGRect(x: 0, y: 0,  width: self.view.frame.size.width, height: 30))
+        //create left side empty space so that done button set on right side
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let doneBtn: UIBarButtonItem = UIBarButtonItem(title: actionTitle, style: actionStyle, target: self, action: action)
+        toolbar.setItems([flexSpace, doneBtn], animated: false)
+        toolbar.sizeToFit()
+        
+        return toolbar
+    }
+    
+    @objc func doneButtonAction() {
+        self.view.endEditing(true)
+    }
+    
+    @objc func focusContentEditor() {
+        TitleTextField.resignFirstResponder()
+        ContentTextView.becomeFirstResponder()
     }
     
     // MARK: - Navigation
-    
     @IBAction func Cancel(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        if (ContentTextView.isFirstResponder || TitleTextField.isFirstResponder) {
+            ContentTextView.resignFirstResponder()
+            TitleTextField.resignFirstResponder()
+        } else {
+            dismiss(animated: true, completion: nil)
+        }
+        
+    }
+    
+    @IBAction func Save(_ sender: UIBarButtonItem) {
+        Cancel(sender)
+    }
+    
+    //MARK: UITextFieldDelegate
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        focusContentEditor()
+        return true
     }
 }
