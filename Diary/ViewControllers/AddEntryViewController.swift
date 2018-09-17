@@ -15,6 +15,9 @@ class AddEntryViewController: UIViewController, UITextFieldDelegate, UITextViewD
     @IBOutlet weak var DateLabel: UILabel!
     @IBOutlet weak var TitleTextField: UITextField!
     @IBOutlet weak var ContentTextView: UITextView!
+    @IBOutlet weak var contentViewBottomConstraint: NSLayoutConstraint!
+    
+    var origBottomConstraint: CGFloat?
     
     //MARK: Setup
     override func viewDidLoad() {
@@ -23,8 +26,13 @@ class AddEntryViewController: UIViewController, UITextFieldDelegate, UITextViewD
         ContentTextView.delegate = self
         DateLabel.text = DiaryEntry.formatDate(from: Date())
         
+        origBottomConstraint = contentViewBottomConstraint.constant
+        
         TitleTextField.inputAccessoryView = setupToolbar(actionTitle: "Next", actionStyle: .plain, action: #selector(focusContentEditor))
         ContentTextView.inputAccessoryView = setupToolbar(actionTitle: "Done", actionStyle: .done, action: #selector(doneButtonAction))
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:NSNotification.Name.UIKeyboardWillShow, object: nil);
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:NSNotification.Name.UIKeyboardWillHide, object: nil);
     }
     
     func setupToolbar(actionTitle: String, actionStyle: UIBarButtonItemStyle, action: Selector) -> UIToolbar {
@@ -66,5 +74,17 @@ class AddEntryViewController: UIViewController, UITextFieldDelegate, UITextViewD
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         focusContentEditor()
         return true
+    }
+    
+    //MARK: Keyboard Events
+    @objc func keyboardWillShow(sender: NSNotification) {
+        let info = sender.userInfo!
+        let keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        
+        contentViewBottomConstraint.constant = keyboardFrame.height + 8
+    }
+    
+    @objc func keyboardWillHide(sender: NSNotification) {
+        contentViewBottomConstraint.constant = origBottomConstraint ?? 8
     }
 }
