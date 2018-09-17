@@ -131,7 +131,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="wDT-mM-Cj4"/>
                     </view>
-                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="WuG-AO-ixl"/>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="WuG-AO-ixl">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="3qi-W0-WPa"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="contentView" destination="ppy-CW-rFH" id="egh-bV-2Zx"/>
                         <outlet property="dateLabel" destination="7AJ-Y4-JK3" id="opC-lz-JOY"/>

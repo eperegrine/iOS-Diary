@@ -22,6 +22,7 @@ class DiaryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         applyEntryToView()
+        navigationItem.title = currentEntry.title ?? currentEntry.gbDate
     }
     
     //MARK: Utility Methods

@@ -14,20 +14,11 @@ fileprivate let detailSegueIdentifier = "EntryDetailSelect"
 class DiaryCollectionViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     @IBOutlet weak var entryCollectionView: UICollectionView!
     
-    let entries: [DiaryEntry] = [
-        DiaryEntry(at: Date(), title: "Lorem", content: UTILS.lorem),
-        DiaryEntry(at: Date(), title: nil, content: UTILS.lorem),
-        DiaryEntry(at: Date(), title: "Lorem3", content: UTILS.lorem),
-        DiaryEntry(at: Date(), title: "Lorem4", content: UTILS.lorem),
-        DiaryEntry(at: Date(), title: "Lorem5", content: UTILS.lorem),
-        DiaryEntry(at: Date(), title: "Lorem6", content: UTILS.lorem),
-        DiaryEntry(at: Date(), title: "Lorem7", content: UTILS.lorem),
-        DiaryEntry(at: Date(), title: "Lorem8", content: UTILS.lorem),
-        DiaryEntry(at: Date(), title: "Lorem9", content: UTILS.lorem),
-    ]
+    var entries: [DiaryEntry] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        entries = getSampleData()
         // Do any additional setup after loading the view, typically from a nib.
         entryCollectionView.delegate = self
         entryCollectionView.dataSource = self
@@ -81,5 +72,28 @@ class DiaryCollectionViewController: UIViewController, UICollectionViewDelegate,
         return vc
     }
     
+    //MARK: Data
+    func getSampleData() -> [DiaryEntry] {
+        return [
+            DiaryEntry(at: Date(), title: "Lorem", content: UTILS.lorem),
+            DiaryEntry(at: Date(), title: nil, content: UTILS.lorem),
+            DiaryEntry(at: Date(), title: "Lorem3", content: UTILS.lorem),
+            DiaryEntry(at: Date(), title: "Lorem4", content: UTILS.lorem),
+            DiaryEntry(at: Date(), title: "Lorem5", content: UTILS.lorem),
+            DiaryEntry(at: Date(), title: "Lorem6", content: UTILS.lorem),
+            DiaryEntry(at: Date(), title: "Lorem7", content: UTILS.lorem),
+            DiaryEntry(at: Date(), title: "Lorem8", content: UTILS.lorem),
+            DiaryEntry(at: Date(), title: "Lorem9", content: UTILS.lorem),
+            DiaryEntry(at: Date(), title: "Lorem10", content: UTILS.lorem),
+            DiaryEntry(at: Date(), title: "Lorem11", content: UTILS.lorem),
+            DiaryEntry(at: Date(), title: "Lorem12", content: UTILS.lorem),
+            DiaryEntry(at: Date(), title: "Lorem13", content: UTILS.lorem),
+            DiaryEntry(at: Date(), title: "Lorem14", content: UTILS.lorem),
+            DiaryEntry(at: Date(), title: "Lorem15", content: UTILS.lorem),
+            DiaryEntry(at: Date(), title: "Lorem16", content: UTILS.lorem),
+            DiaryEntry(at: Date(), title: "Lorem17", content: UTILS.lorem),
+            DiaryEntry(at: Date(), title: "Lorem18", content: UTILS.lorem)
+        ]
+    }
 }
 
