@@ -9,13 +9,14 @@
 import UIKit
 
 fileprivate let reuseIdentifier = "DiaryEntryCell"
+fileprivate let detailSegueIdentifier = "EntryDetailSelect"
 
 class DiaryCollectionViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     @IBOutlet weak var entryCollectionView: UICollectionView!
     
     let entries: [DiaryEntry] = [
         DiaryEntry(at: Date(), title: "Lorem", content: UTILS.lorem),
-        DiaryEntry(at: Date(), title: "Lorem2", content: UTILS.lorem),
+        DiaryEntry(at: Date(), title: nil, content: UTILS.lorem),
         DiaryEntry(at: Date(), title: "Lorem3", content: UTILS.lorem),
         DiaryEntry(at: Date(), title: "Lorem4", content: UTILS.lorem),
         DiaryEntry(at: Date(), title: "Lorem5", content: UTILS.lorem),
@@ -37,6 +38,31 @@ class DiaryCollectionViewController: UIViewController, UICollectionViewDelegate,
         // Dispose of any resources that can be recreated.
     }
     
+    //MARK: Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == detailSegueIdentifier) {
+            guard let selectedEntryCell = sender as? DiaryEntryCollectionViewCell else {
+                fatalError("Unexpected sender: \(sender ?? "nil")")
+            }
+            guard let detailViewController = segue.destination as? DiaryViewController else {
+                fatalError("UnexpectedDestination: \(segue.destination)")
+            }
+            guard let selectedEntry = selectedEntryCell.entry else {
+                fatalError("Selected cell has no diary")
+            }
+            
+            detailViewController.currentEntry = selectedEntry
+            
+        } else {
+            print("UNKOWN SEGUE")
+        }
+    }
+    
+    //MARK: UICollectionViewDeletegate Methods
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("Selected item", entries[indexPath.item])
+    }
+    
     //MARK: UICollectionViewDataSource Protocol Methods
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -51,7 +77,7 @@ class DiaryCollectionViewController: UIViewController, UICollectionViewDelegate,
         guard let vc = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? DiaryEntryCollectionViewCell else {
             fatalError("The deques cell is not an instance of diary entry view cell")
         }
-        vc.setDiary(to: entries[indexPath.item])
+        vc.entry = entries[indexPath.item]
         return vc
     }
     
