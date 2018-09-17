@@ -78,7 +78,11 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Diary Entries" id="zbH-hA-x1I">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="PuD-Rb-li0"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="PuD-Rb-li0">
+                            <connections>
+                                <segue destination="QY3-Jm-ahK" kind="presentation" id="tpc-2l-EuU"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="entryCollectionView" destination="nkl-nW-X2X" id="aM6-2m-Maj"/>
@@ -87,6 +91,29 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1104.8" y="196.55172413793105"/>
+        </scene>
+        <!--Add Entry-->
+        <scene sceneID="g80-iW-MJ4">
+            <objects>
+                <viewController title="Add Entry" id="DwN-uc-l6k" customClass="AddEntryViewController" customModule="Diary" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ag5-c8-9F1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="dn0-OE-9Wq"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add Entry" id="pIi-IW-y1w">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="x0P-t0-jLh">
+                            <connections>
+                                <action selector="Cancel:" destination="DwN-uc-l6k" id="nXl-zn-vHS"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="1eu-vk-5AN"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SC9-hw-i6n" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2908" y="-112.3152709359606"/>
         </scene>
         <!--Diary Entry Detail-->
         <scene sceneID="SAz-V5-xOx">
@@ -132,7 +159,7 @@
                         <viewLayoutGuide key="safeArea" id="wDT-mM-Cj4"/>
                     </view>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="WuG-AO-ixl">
-                        <barButtonItem key="backBarButtonItem" title="Back" id="3qi-W0-WPa"/>
+                        <barButtonItem key="backBarButtonItem" title="Back" style="done" id="3qi-W0-WPa"/>
                     </navigationItem>
                     <connections>
                         <outlet property="contentView" destination="ppy-CW-rFH" id="egh-bV-2Zx"/>
@@ -142,7 +169,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gxx-rJ-8ic" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1871" y="197"/>
+            <point key="canvasLocation" x="2908" y="533.49753694581284"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="pSv-v6-eO1">
@@ -161,6 +188,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mb1-SO-ac3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="294" y="197"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="858-tX-XuN">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="QY3-Jm-ahK" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="6ev-49-QfY">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="DwN-uc-l6k" kind="relationship" relationship="rootViewController" id="lel-Zp-v5E"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MlC-xm-SZ5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1965.5999999999999" y="-112.3152709359606"/>
         </scene>
     </scenes>
 </document>
