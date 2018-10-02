@@ -26,6 +26,8 @@ class AddEntryViewController: UIViewController, UITextFieldDelegate, UITextViewD
         ContentTextView.delegate = self
         DateLabel.text = DiaryEntry.formatDate(from: Date())
         
+        updateSaveButtonState()
+        
         origBottomConstraint = contentViewBottomConstraint.constant
         
         TitleTextField.inputAccessoryView = setupToolbar(actionTitle: "Next", actionStyle: .plain, action: #selector(focusContentEditor))
@@ -56,9 +58,8 @@ class AddEntryViewController: UIViewController, UITextFieldDelegate, UITextViewD
     }
     
     //MARK: Save
-    
     func getEntry() -> DiaryEntry {
-        return DiaryEntry(at: Date(), title: "TEST_TILE", content: "TEST_CONTENT")
+        return DiaryEntry(at: Date(), title: TitleTextField.text, content: ContentTextView.text)
     }
     
     func saveToFileSystem() {
@@ -101,6 +102,11 @@ class AddEntryViewController: UIViewController, UITextFieldDelegate, UITextViewD
         return true
     }
     
+    //MARK: TextViewDelegate
+    func textViewDidChange(_ textView: UITextView) {
+        updateSaveButtonState()
+    }
+    
     //MARK: Keyboard Events
     @objc func keyboardWillShow(sender: NSNotification) {
         let info = sender.userInfo!
@@ -111,5 +117,11 @@ class AddEntryViewController: UIViewController, UITextFieldDelegate, UITextViewD
     
     @objc func keyboardWillHide(sender: NSNotification) {
         contentViewBottomConstraint.constant = origBottomConstraint ?? 8
+        updateSaveButtonState()
+    }
+    
+    //Mark: Private
+    private func updateSaveButtonState() {
+        saveButton.isEnabled = !ContentTextView.text.isEmpty
     }
 }
