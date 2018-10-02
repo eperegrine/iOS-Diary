@@ -31,11 +31,11 @@ class AddEntryViewController: UIViewController, UITextFieldDelegate, UITextViewD
         TitleTextField.inputAccessoryView = setupToolbar(actionTitle: "Next", actionStyle: .plain, action: #selector(focusContentEditor))
         ContentTextView.inputAccessoryView = setupToolbar(actionTitle: "Done", actionStyle: .done, action: #selector(doneButtonAction))
         
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:NSNotification.Name.UIKeyboardWillShow, object: nil);
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:NSNotification.Name.UIKeyboardWillHide, object: nil);
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:UIResponder.keyboardWillShowNotification, object: nil);
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:UIResponder.keyboardWillHideNotification, object: nil);
     }
     
-    func setupToolbar(actionTitle: String, actionStyle: UIBarButtonItemStyle, action: Selector) -> UIToolbar {
+    func setupToolbar(actionTitle: String, actionStyle: UIBarButtonItem.Style, action: Selector) -> UIToolbar {
         let toolbar:UIToolbar = UIToolbar(frame: CGRect(x: 0, y: 0,  width: self.view.frame.size.width, height: 30))
         //create left side empty space so that done button set on right side
         let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
@@ -79,7 +79,7 @@ class AddEntryViewController: UIViewController, UITextFieldDelegate, UITextViewD
     //MARK: Keyboard Events
     @objc func keyboardWillShow(sender: NSNotification) {
         let info = sender.userInfo!
-        let keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        let keyboardFrame: CGRect = (info[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
         
         contentViewBottomConstraint.constant = keyboardFrame.height + 8
     }

@@ -177,9 +177,11 @@
 				TargetAttributes = {
 					6A8C65DC214C20AE0021C535 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1000;
 					};
 					6A8C65F0214C20AF0021C535 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1000;
 						TestTargetID = 6A8C65DC214C20AE0021C535;
 					};
 				};
@@ -403,7 +405,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.emilyperegrine2.Diary;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -421,7 +423,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.emilyperegrine2.Diary;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -441,7 +443,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.emilyperegrine.DiaryTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Diary.app/Diary";
 			};
@@ -462,7 +464,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.emilyperegrine.DiaryTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Diary.app/Diary";
 			};
