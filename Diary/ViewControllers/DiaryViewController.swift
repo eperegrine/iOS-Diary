@@ -8,6 +8,8 @@
 
 import UIKit
 
+let editSegueID = "editEntry"
+
 class DiaryViewController: UIViewController {
 
     //MARK: UI Properties
@@ -35,5 +37,17 @@ class DiaryViewController: UIViewController {
         dateLabel.text = currentEntry.gbDate
         titleLabel.text = currentEntry.title ?? ""
         contentView.text = currentEntry.content
+    }
+    
+    //MARK: Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == editSegueID) {
+            guard let editVC = segue.destination as? DiaryEntryEditViewController else {
+                fatalError("Received edit segue but destination is not edit view controller")
+            }
+            editVC.entry = currentEntry
+        } else {
+            print("UNKOWN SEGUE")
+        }
     }
 }

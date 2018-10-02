@@ -166,7 +166,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SC9-hw-i6n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2606" y="-112"/>
+            <point key="canvasLocation" x="2692" y="-111"/>
         </scene>
         <!--Diary Entry Detail-->
         <scene sceneID="SAz-V5-xOx">
@@ -215,7 +215,7 @@
                         <barButtonItem key="backBarButtonItem" title="Back" style="done" id="3qi-W0-WPa"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="Gje-FN-1JX">
                             <connections>
-                                <segue destination="jPY-FR-Nh0" kind="show" id="hvO-5f-846"/>
+                                <segue destination="jPY-FR-Nh0" kind="show" identifier="editEntry" id="hvO-5f-846"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -227,12 +227,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gxx-rJ-8ic" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1842" y="543"/>
+            <point key="canvasLocation" x="1902" y="543"/>
         </scene>
-        <!--Edit Item-->
+        <!--Edit Entry-->
         <scene sceneID="wYl-Wg-wba">
             <objects>
-                <viewController id="jPY-FR-Nh0" sceneMemberID="viewController">
+                <viewController id="jPY-FR-Nh0" customClass="DiaryEntryEditViewController" customModule="Diary" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TqT-Je-GdP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -273,15 +273,20 @@
                         <viewLayoutGuide key="safeArea" id="1nT-Un-ZwN"/>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Edit Item" id="JFN-k1-uUs">
+                    <navigationItem key="navigationItem" title="Edit Entry" id="JFN-k1-uUs">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="djf-jJ-CTb"/>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="ContentTextView" destination="CRg-rT-koN" id="BwI-XU-M82"/>
+                        <outlet property="DateInputField" destination="kiX-bv-qcj" id="152-A3-4TY"/>
+                        <outlet property="TitleInputField" destination="66L-i1-BrQ" id="lf7-M1-7cB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GX4-kK-xvD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2629.5999999999999" y="541.62561576354688"/>
+            <point key="canvasLocation" x="2692" y="543"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="pSv-v6-eO1">
@@ -317,7 +322,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MlC-xm-SZ5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1822" y="-112"/>
+            <point key="canvasLocation" x="1903" y="-111"/>
         </scene>
     </scenes>
 </document>
