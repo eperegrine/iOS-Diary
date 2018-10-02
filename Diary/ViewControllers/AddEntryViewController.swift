@@ -55,6 +55,35 @@ class AddEntryViewController: UIViewController, UITextFieldDelegate, UITextViewD
         ContentTextView.becomeFirstResponder()
     }
     
+    //MARK: Save
+    
+    func getEntry() -> DiaryEntry {
+        return DiaryEntry(at: Date(), title: "TEST_TILE", content: "TEST_CONTENT")
+    }
+    
+    func saveToFileSystem() {
+        var newEntries: [DiaryEntry] = []
+        //Load the saved entries if they exist
+        if let entries = NSKeyedUnarchiver.unarchiveObject(withFile: DiaryEntry.ArchiveURL.path) as? [DiaryEntry] {
+            newEntries = entries
+        }
+        newEntries.append(getEntry())
+        
+        let successfulSave = NSKeyedArchiver.archiveRootObject(newEntries, toFile: DiaryEntry.ArchiveURL.path)
+        if successfulSave {
+            print("Successfully saved entries")
+        } else {
+            print("Failed to save entries")
+        }
+    }
+    
+    @IBAction func Save(_ sender: UIBarButtonItem) {
+        print("Saving...")
+        saveToFileSystem()
+        Cancel(sender)
+    }
+    
+    
     // MARK: - Navigation
     @IBAction func Cancel(_ sender: Any) {
         if (ContentTextView.isFirstResponder || TitleTextField.isFirstResponder) {
@@ -63,13 +92,9 @@ class AddEntryViewController: UIViewController, UITextFieldDelegate, UITextViewD
         } else {
             dismiss(animated: true, completion: nil)
         }
-        
     }
     
-    @IBAction func Save(_ sender: UIBarButtonItem) {
-        Cancel(sender)
-    }
-    
+   
     //MARK: UITextFieldDelegate
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         focusContentEditor()

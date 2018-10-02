@@ -49,6 +49,12 @@ class DiaryCollectionViewController: UIViewController, UICollectionViewDelegate,
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("Hello!!!!")
+        entries = loadData()
+        entryCollectionView.reloadData()
+    }
     //MARK: UICollectionViewDeletegate Methods
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("Selected item", entries[indexPath.item])
@@ -79,6 +85,15 @@ class DiaryCollectionViewController: UIViewController, UICollectionViewDelegate,
             DiaryEntry(at: Date(), title: nil, content: UTILS.lorem),
             DiaryEntry(at: Date(), title: "Lorem3", content: UTILS.lorem)
         ]
+    }
+    
+    func loadData() -> [DiaryEntry] {
+        if let loadedEntries = NSKeyedUnarchiver.unarchiveObject(withFile: DiaryEntry.ArchiveURL.path) as? [DiaryEntry] {
+            var retEntries = getSampleData()
+            retEntries.append(contentsOf: loadedEntries)
+            return retEntries
+        }
+        return getSampleData()
     }
 }
 

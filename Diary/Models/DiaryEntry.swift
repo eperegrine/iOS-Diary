@@ -19,6 +19,10 @@ class DiaryEntry: NSObject, NSCoding {
     var title: String?
     var content: String
     
+    //MARK: Archiving Paths
+    static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
+    static let ArchiveURL = DocumentsDirectory.appendingPathComponent("entries")
+    
     static var dateFormatter: DateFormatter {
         let df = DateFormatter()
         df.dateFormat = "dd/MM/yyyy"
