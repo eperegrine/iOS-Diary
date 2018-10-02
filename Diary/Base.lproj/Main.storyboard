@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Oao-YT-Ms7">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Oao-YT-Ms7">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -213,6 +213,11 @@
                     </view>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="WuG-AO-ixl">
                         <barButtonItem key="backBarButtonItem" title="Back" style="done" id="3qi-W0-WPa"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="Gje-FN-1JX">
+                            <connections>
+                                <segue destination="jPY-FR-Nh0" kind="show" id="hvO-5f-846"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="contentView" destination="ppy-CW-rFH" id="egh-bV-2Zx"/>
@@ -222,7 +227,61 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gxx-rJ-8ic" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2199" y="547"/>
+            <point key="canvasLocation" x="1842" y="543"/>
+        </scene>
+        <!--Edit Item-->
+        <scene sceneID="wYl-Wg-wba">
+            <objects>
+                <viewController id="jPY-FR-Nh0" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="TqT-Je-GdP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="66L-i1-BrQ">
+                                <rect key="frame" x="30" y="150" width="315" height="40"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CRg-rT-koN">
+                                <rect key="frame" x="30" y="198" width="315" height="560"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kiX-bv-qcj">
+                                <rect key="frame" x="30" y="108" width="315" height="34"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="CRg-rT-koN" firstAttribute="top" secondItem="66L-i1-BrQ" secondAttribute="bottom" constant="8" id="16d-xp-X36"/>
+                            <constraint firstItem="1nT-Un-ZwN" firstAttribute="trailing" secondItem="kiX-bv-qcj" secondAttribute="trailing" constant="30" id="1BO-Wo-xVn"/>
+                            <constraint firstItem="1nT-Un-ZwN" firstAttribute="bottom" secondItem="CRg-rT-koN" secondAttribute="bottom" constant="20" id="4Qq-Hv-i8C"/>
+                            <constraint firstItem="1nT-Un-ZwN" firstAttribute="trailing" secondItem="CRg-rT-koN" secondAttribute="trailing" constant="30" id="BLs-HR-3S4"/>
+                            <constraint firstItem="66L-i1-BrQ" firstAttribute="leading" secondItem="1nT-Un-ZwN" secondAttribute="leading" constant="30" id="ErX-24-gUV"/>
+                            <constraint firstItem="66L-i1-BrQ" firstAttribute="top" secondItem="kiX-bv-qcj" secondAttribute="bottom" constant="8" id="TXa-Zx-I3s"/>
+                            <constraint firstItem="kiX-bv-qcj" firstAttribute="top" secondItem="1nT-Un-ZwN" secondAttribute="top" constant="20" id="nGW-kB-EKu"/>
+                            <constraint firstItem="CRg-rT-koN" firstAttribute="leading" secondItem="1nT-Un-ZwN" secondAttribute="leading" constant="30" id="rfr-QS-TiG"/>
+                            <constraint firstItem="kiX-bv-qcj" firstAttribute="leading" secondItem="1nT-Un-ZwN" secondAttribute="leading" constant="30" id="xM1-kE-iH1"/>
+                            <constraint firstItem="1nT-Un-ZwN" firstAttribute="trailing" secondItem="66L-i1-BrQ" secondAttribute="trailing" constant="30" id="yM6-fs-2Q0"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="1nT-Un-ZwN"/>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Edit Item" id="JFN-k1-uUs">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="djf-jJ-CTb"/>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GX4-kK-xvD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2629.5999999999999" y="541.62561576354688"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="pSv-v6-eO1">
